@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext.jsx';
 import Logo from './Logo.jsx';
-import ThemeToggle from './ThemeToggle.jsx';
+//import ThemeToggle from './ThemeToggle.jsx';
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -49,7 +49,7 @@ export default function Navbar() {
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
-          <ThemeToggle />
+        //  <ThemeToggle />
           {user ? (
             <>
               <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white/80 px-3 py-1.5 backdrop-blur dark:border-white/10 dark:bg-white/5">
@@ -68,7 +68,7 @@ export default function Navbar() {
           )}
         </div>
 
-        <div className="flex items-center gap-2 md:hidden">
+       /* <div className="flex items-center gap-2 md:hidden">
           <ThemeToggle />
           <button
             className="btn-ghost"
@@ -79,7 +79,7 @@ export default function Navbar() {
               {open ? <path d="M6 6l12 12M6 18L18 6" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
             </svg>
           </button>
-        </div>
+        </div> */
       </div>
 
       {open && (
