@@ -1,7 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'class',
   theme: {
     extend: {
       fontFamily: {
@@ -69,9 +68,7 @@ export default {
       },
       backgroundImage: {
         'grid-slate': "linear-gradient(to right, rgba(15,23,42,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(15,23,42,0.05) 1px, transparent 1px)",
-        'grid-dark': "linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px)",
         'mesh-light': "radial-gradient(at 12% 18%, rgba(124,92,255,0.18) 0px, transparent 50%), radial-gradient(at 88% 12%, rgba(99,102,241,0.18) 0px, transparent 50%), radial-gradient(at 76% 88%, rgba(236,72,153,0.14) 0px, transparent 50%), radial-gradient(at 18% 84%, rgba(56,189,248,0.16) 0px, transparent 50%)",
-        'mesh-dark':  "radial-gradient(at 12% 18%, rgba(124,92,255,0.30) 0px, transparent 50%), radial-gradient(at 88% 12%, rgba(99,102,241,0.28) 0px, transparent 50%), radial-gradient(at 76% 88%, rgba(236,72,153,0.22) 0px, transparent 50%), radial-gradient(at 18% 84%, rgba(56,189,248,0.22) 0px, transparent 50%)",
       },
     },
   },

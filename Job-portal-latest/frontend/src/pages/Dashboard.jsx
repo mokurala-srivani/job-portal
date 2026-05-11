@@ -11,12 +11,12 @@ import { ListSkeleton } from '../components/Skeleton.jsx';
 import RecruiterDashboard from './RecruiterDashboard.jsx';
 
 const CATEGORIES = [
-  { name: 'UI/UX Design',     icon: 'design', q: 'designer',  count: '1,245 jobs', tint: 'bg-violet-100 text-violet-600 dark:bg-violet-500/15 dark:text-violet-300' },
-  { name: 'Development',      icon: 'code',   q: 'engineer',  count: '3,678 jobs', tint: 'bg-sky-100 text-sky-600 dark:bg-sky-500/15 dark:text-sky-300' },
-  { name: 'Marketing',        icon: 'mega',   q: 'marketing', count: '1,096 jobs', tint: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300' },
-  { name: 'Sales',            icon: 'thumb',  q: 'sales',     count: '1,192 jobs', tint: 'bg-amber-100 text-amber-600 dark:bg-amber-500/15 dark:text-amber-300' },
-  { name: 'Product',          icon: 'box',    q: 'product',   count: '1,005 jobs', tint: 'bg-rose-100 text-rose-600 dark:bg-rose-500/15 dark:text-rose-300' },
-  { name: 'Customer Support', icon: 'chat',   q: 'support',   count: '876 jobs',   tint: 'bg-teal-100 text-teal-600 dark:bg-teal-500/15 dark:text-teal-300' },
+  { name: 'UI/UX Design',     icon: 'design', q: 'designer',  count: '1,245 jobs', tint: 'bg-violet-100 text-violet-600' },
+  { name: 'Development',      icon: 'code',   q: 'engineer',  count: '3,678 jobs', tint: 'bg-sky-100 text-sky-600' },
+  { name: 'Marketing',        icon: 'mega',   q: 'marketing', count: '1,096 jobs', tint: 'bg-emerald-100 text-emerald-600' },
+  { name: 'Sales',            icon: 'thumb',  q: 'sales',     count: '1,192 jobs', tint: 'bg-amber-100 text-amber-600' },
+  { name: 'Product',          icon: 'box',    q: 'product',   count: '1,005 jobs', tint: 'bg-rose-100 text-rose-600' },
+  { name: 'Customer Support', icon: 'chat',   q: 'support',   count: '876 jobs',   tint: 'bg-teal-100 text-teal-600' },
 ];
 
 const SEEKER_NAV = [
@@ -35,11 +35,11 @@ const RECRUITER_NAV = [
 ];
 
 const STATUS_COLORS = {
-  pending:     'bg-amber-100 text-amber-800 dark:bg-amber-500/15 dark:text-amber-300',
-  reviewed:    'bg-blue-100 text-blue-800 dark:bg-blue-500/15 dark:text-blue-300',
-  shortlisted: 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/15 dark:text-emerald-300',
-  rejected:    'bg-rose-100 text-rose-800 dark:bg-rose-500/15 dark:text-rose-300',
-  hired:       'bg-violet-100 text-violet-800 dark:bg-violet-500/15 dark:text-violet-300',
+  pending:     'bg-amber-100 text-amber-800',
+  reviewed:    'bg-blue-100 text-blue-800',
+  shortlisted: 'bg-emerald-100 text-emerald-800',
+  rejected:    'bg-rose-100 text-rose-800',
+  hired:       'bg-violet-100 text-violet-800',
 };
 
 const RECOMMENDED = [
@@ -78,10 +78,10 @@ function DashboardShell({ user, nav, onLogout, isSeeker, children }) {
   };
 
   return (
-    <div className="min-h-[calc(100vh-4rem)] bg-slate-50 dark:bg-ink-950">
+    <div className="min-h-[calc(100vh-4rem)] bg-slate-50">
       <div className="mx-auto flex max-w-[1500px]">
         {/* SIDEBAR */}
-        <aside className="sticky top-0 hidden h-screen w-64 flex-shrink-0 flex-col border-r border-slate-200 bg-white py-6 dark:border-white/10 dark:bg-ink-900 lg:flex">
+        <aside className="sticky top-0 hidden h-screen w-64 flex-shrink-0 flex-col border-r border-slate-200 bg-white py-6 lg:flex">
           <div className="px-6"><Logo /></div>
 
           <nav className="mt-8 flex-1 space-y-1 overflow-y-auto px-3">
@@ -89,7 +89,7 @@ function DashboardShell({ user, nav, onLogout, isSeeker, children }) {
           </nav>
 
           <div className="mx-3 mt-3">
-            <button type="button" onClick={onLogout} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-white/5">
+            <button type="button" onClick={onLogout} className="flex w-full items-center gap-3 rounded-lg px-3 py-2 text-sm font-medium text-slate-600 hover:bg-slate-50">
               <SideIcon name="logout" />
               Log Out
             </button>
@@ -98,29 +98,29 @@ function DashboardShell({ user, nav, onLogout, isSeeker, children }) {
 
         <div className="min-w-0 flex-1">
           {/* TOP BAR */}
-          <div className="sticky top-0 z-20 border-b border-slate-200 bg-white px-4 py-3 dark:border-white/10 dark:bg-ink-900 sm:px-6">
+          <div className="sticky top-0 z-20 border-b border-slate-200 bg-white px-4 py-3 sm:px-6">
             <div className="flex items-center gap-3">
               <button type="button" onClick={() => setMenuOpen((o) => !o)}
-                className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 lg:hidden" aria-label="Menu">
+                className="grid h-10 w-10 place-items-center rounded-xl border border-slate-200 bg-white text-slate-600 lg:hidden" aria-label="Menu">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
               </button>
 
-              <form onSubmit={onSearch} className="flex flex-1 items-center gap-2 rounded-2xl border border-slate-200 bg-white p-1 dark:border-white/10 dark:bg-white/5">
+              <form onSubmit={onSearch} className="flex flex-1 items-center gap-2 rounded-2xl border border-slate-200 bg-white p-1">
                 <div className="flex flex-1 items-center gap-2 px-3">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-400"><circle cx="11" cy="11" r="7" /><path d="M20 20l-3.5-3.5" /></svg>
-                  <input className="w-full bg-transparent py-2 text-sm focus:outline-none dark:text-white"
+                  <input className="w-full bg-transparent py-2 text-sm focus:outline-none"
                     placeholder="Search jobs, companies, or keywords" value={q} onChange={(e) => setQ(e.target.value)} />
                 </div>
-                <div className="hidden h-6 w-px bg-slate-200 dark:bg-white/10 sm:block" />
+                <div className="hidden h-6 w-px bg-slate-200 sm:block" />
                 <div className="hidden flex-1 items-center gap-2 px-3 sm:flex">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-slate-400"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" /><circle cx="12" cy="9" r="2.5" /></svg>
-                  <input className="w-full bg-transparent py-2 text-sm focus:outline-none dark:text-white"
+                  <input className="w-full bg-transparent py-2 text-sm focus:outline-none"
                     placeholder="Location" value={loc} onChange={(e) => setLoc(e.target.value)} />
                 </div>
                 <button className="btn-primary px-6 py-2 text-sm" type="submit">Search</button>
               </form>
 
-              <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white p-1 pr-3 dark:border-white/10 dark:bg-white/5">
+              <div className="flex items-center gap-2 rounded-full border border-slate-200 bg-white p-1 pr-3">
                 <span className="grid h-8 w-8 place-items-center rounded-full bg-gradient-to-br from-brand-500 to-brand-700 text-xs font-bold text-white">
                   {user.name?.[0]?.toUpperCase() || 'U'}
                 </span>
@@ -129,9 +129,9 @@ function DashboardShell({ user, nav, onLogout, isSeeker, children }) {
             </div>
 
             {menuOpen && (
-              <nav className="mt-3 grid gap-1 border-t border-slate-200 pt-3 dark:border-white/10 lg:hidden">
+              <nav className="mt-3 grid gap-1 border-t border-slate-200 pt-3 lg:hidden">
                 {nav.map((n) => <NavItem key={n.label} item={n} onClick={() => setMenuOpen(false)} />)}
-                <button onClick={onLogout} className="mt-1 rounded-lg border border-slate-300 bg-white py-2 text-sm font-medium text-slate-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+                <button onClick={onLogout} className="mt-1 rounded-lg border border-slate-300 bg-white py-2 text-sm font-medium text-slate-700">
                   Log Out
                 </button>
               </nav>
@@ -149,8 +149,8 @@ function NavItem({ item, onClick }) {
   const cls = ({ isActive }) =>
     `flex items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition ${
       isActive
-        ? 'bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-200'
-        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-white/5 dark:hover:text-white'
+        ? 'bg-brand-50 text-brand-700'
+        : 'text-slate-600 hover:bg-slate-50 hover:text-slate-900'
     }`;
   return (
     <NavLink to={item.to} end={item.end} onClick={onClick} className={cls}>
@@ -193,22 +193,22 @@ function SeekerHome({ user }) {
     <div className="grid gap-6 xl:grid-cols-[1fr_340px]">
       <div className="space-y-6">
         {/* HERO */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-50 via-white to-indigo-50 p-6 dark:from-brand-500/15 dark:via-ink-900 dark:to-indigo-500/10 sm:p-8">
+        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-brand-50 via-white to-indigo-50 p-6 sm:p-8">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-brand-200/40 blur-3xl" />
           <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-indigo-200/40 blur-3xl" />
           <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_240px]">
             <div>
-              <h1 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              <h1 className="font-display text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
                 Find the job
                 <br />
                 that fits <span className="text-gradient">your life</span>
               </h1>
-              <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-300">
+              <p className="mt-3 max-w-md text-sm text-slate-600">
                 Discover opportunities, showcase your skills, and build the career you've always wanted.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
                 <Link to="/jobs" className="btn-primary px-6 py-2.5 text-sm">Find Jobs</Link>
-                <Link to="/dashboard?tab=applied" className="btn border-2 border-brand-600 bg-transparent px-6 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-200 dark:hover:bg-brand-500/10">
+                <Link to="/dashboard?tab=applied" className="btn border-2 border-brand-600 bg-transparent px-6 py-2.5 text-sm font-semibold text-brand-700 hover:bg-brand-50">
                   Upload Resume
                 </Link>
               </div>
@@ -220,16 +220,16 @@ function SeekerHome({ user }) {
         {/* CATEGORIES */}
         <section>
           <div className="mb-4 flex items-end justify-between">
-            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">Popular Categories</h2>
-            <Link to="/jobs" className="text-xs font-medium text-brand-700 hover:underline dark:text-brand-300">View all</Link>
+            <h2 className="font-display text-lg font-bold text-slate-900">Popular Categories</h2>
+            <Link to="/jobs" className="text-xs font-medium text-brand-700 hover:underline">View all</Link>
           </div>
           <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
             {CATEGORIES.map((c) => (
               <Link key={c.name} to={`/jobs?q=${encodeURIComponent(c.q)}`}
                 className="card flex flex-col items-center gap-2 p-4 text-center transition hover:-translate-y-0.5 hover:border-brand-300 hover:shadow-glow">
                 <span className={`grid h-12 w-12 place-items-center rounded-2xl ${c.tint}`}><CatIcon name={c.icon} /></span>
-                <span className="text-[11px] font-semibold text-slate-800 dark:text-slate-100">{c.name}</span>
-                <span className="text-[10px] text-slate-500 dark:text-slate-400">{c.count}</span>
+                <span className="text-[11px] font-semibold text-slate-800">{c.name}</span>
+                <span className="text-[10px] text-slate-500">{c.count}</span>
               </Link>
             ))}
           </div>
@@ -238,8 +238,8 @@ function SeekerHome({ user }) {
         {/* FEATURED JOBS */}
         <section>
           <div className="mb-4 flex items-end justify-between">
-            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">Featured Jobs</h2>
-            <Link to="/jobs" className="text-xs font-medium text-brand-700 hover:underline dark:text-brand-300">View all</Link>
+            <h2 className="font-display text-lg font-bold text-slate-900">Featured Jobs</h2>
+            <Link to="/jobs" className="text-xs font-medium text-brand-700 hover:underline">View all</Link>
           </div>
           <ul className="space-y-3">
             {featured === null && <ListSkeleton count={3} />}
@@ -257,15 +257,15 @@ function SeekerHome({ user }) {
       {/* RIGHT SIDEBAR */}
       <aside className="space-y-6">
         <div className="card p-5">
-          <h3 className="text-sm font-bold text-slate-900 dark:text-white">Recommended for you</h3>
+          <h3 className="text-sm font-bold text-slate-900">Recommended for you</h3>
           <ul className="mt-4 space-y-4">
             {RECOMMENDED.map((r) => (
               <li key={r.title} className="flex items-start gap-3">
                 <span className={`grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl text-sm font-bold ${r.tint}`}>{r.company[0]}</span>
                 <div className="min-w-0 flex-1">
-                  <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{r.title}</p>
-                  <p className="truncate text-xs text-slate-500 dark:text-slate-400">{r.company}</p>
-                  <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-slate-500 dark:text-slate-400">
+                  <p className="truncate text-sm font-semibold text-slate-900">{r.title}</p>
+                  <p className="truncate text-xs text-slate-500">{r.company}</p>
+                  <p className="mt-1 inline-flex items-center gap-1 text-[11px] text-slate-500">
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" /><circle cx="12" cy="9" r="2.5" /></svg>
                     {r.location}
                   </p>
@@ -292,17 +292,17 @@ function ApplicationsView({ apps }) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">My Applications</h1>
-      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{apps.length} total</p>
+      <h1 className="text-2xl font-bold text-slate-900">My Applications</h1>
+      <p className="mt-1 text-sm text-slate-600">{apps.length} total</p>
       <ul className="mt-6 space-y-3">
         {apps.map((a) => (
           <li key={a._id} className="card flex items-center justify-between gap-3 p-4">
             <div className="min-w-0">
-              <Link to={`/jobs/${a.job?._id}`} className="font-semibold text-slate-900 hover:text-brand-700 dark:text-white">
+              <Link to={`/jobs/${a.job?._id}`} className="font-semibold text-slate-900 hover:text-brand-700">
                 {a.job?.title || 'Job removed'}
               </Link>
-              <p className="text-sm text-slate-600 dark:text-slate-400">{a.job?.company} · {a.job?.location}</p>
-              <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">Applied {new Date(a.createdAt).toLocaleDateString()}</p>
+              <p className="text-sm text-slate-600">{a.job?.company} · {a.job?.location}</p>
+              <p className="mt-1 text-xs text-slate-500">Applied {new Date(a.createdAt).toLocaleDateString()}</p>
             </div>
             <span className={`badge capitalize ${STATUS_COLORS[a.status] || ''}`}>{a.status}</span>
           </li>
@@ -319,8 +319,8 @@ function SavedView({ saved, onToggleSave }) {
 
   return (
     <div>
-      <h1 className="text-2xl font-bold text-slate-900 dark:text-white">Saved Jobs</h1>
-      <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{saved.length} saved</p>
+      <h1 className="text-2xl font-bold text-slate-900">Saved Jobs</h1>
+      <p className="mt-1 text-sm text-slate-600">{saved.length} saved</p>
       <ul className="mt-6 space-y-3">
         {saved.map((j) => (
           <FeaturedRow key={j._id} job={j} saved onSave={() => onToggleSave(j._id)} />
@@ -351,11 +351,11 @@ function FeaturedRow({ job, saved, onSave }) {
     <li className="card flex flex-col items-start gap-4 p-4 sm:flex-row sm:items-center">
       <CompanyLogo name={job.company} size={48} />
       <div className="min-w-0 flex-1">
-        <Link to={`/jobs/${job._id}`} className="block truncate font-semibold text-slate-900 hover:text-brand-700 dark:text-white">{job.title}</Link>
-        <p className="truncate text-sm text-slate-600 dark:text-slate-400">
+        <Link to={`/jobs/${job._id}`} className="block truncate font-semibold text-slate-900 hover:text-brand-700">{job.title}</Link>
+        <p className="truncate text-sm text-slate-600">
           {job.company} <span className="ml-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-sky-500 text-[8px] text-white">✓</span>
         </p>
-        <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500">
           <span className="inline-flex items-center gap-1">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s7-7.5 7-13a7 7 0 10-14 0c0 5.5 7 13 7 13z" /><circle cx="12" cy="9" r="2.5" /></svg>
             {job.location || 'Remote'}
@@ -367,12 +367,12 @@ function FeaturedRow({ job, saved, onSave }) {
         </div>
       </div>
       <div className="flex items-center gap-3 self-stretch sm:self-auto">
-        {salary && <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300">{salary}</span>}
-        <span className="hidden text-xs text-slate-500 dark:text-slate-400 sm:inline">{ago}</span>
+        {salary && <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">{salary}</span>}
+        <span className="hidden text-xs text-slate-500 sm:inline">{ago}</span>
         {onSave && (
           <button type="button" onClick={(e) => { e.preventDefault(); onSave(); }}
             className={`grid h-9 w-9 place-items-center rounded-lg border transition ${
-              saved ? 'border-rose-200 bg-rose-50 text-rose-500' : 'border-slate-200 text-slate-400 hover:text-rose-500 dark:border-white/10'
+              saved ? 'border-rose-200 bg-rose-50 text-rose-500' : 'border-slate-200 text-slate-400 hover:text-rose-500'
             }`} aria-label={saved ? 'Unsave' : 'Save'}>
             <svg width="14" height="14" viewBox="0 0 24 24" fill={saved ? 'currentColor' : 'none'} stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
           </button>
@@ -425,10 +425,10 @@ function RecruiterHome({ user }) {
   if (tab === 'create' || tab === 'postings' || tab === 'applicants') {
     return (
       <div>
-        <div className="mb-4 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
-          <Link to="/dashboard" className="hover:text-brand-700 dark:hover:text-brand-300">Dashboard</Link>
+        <div className="mb-4 flex items-center gap-2 text-xs text-slate-500">
+          <Link to="/dashboard" className="hover:text-brand-700">Dashboard</Link>
           <span>›</span>
-          <span className="capitalize text-slate-700 dark:text-slate-200">{tab === 'create' ? 'Post a Job' : tab === 'postings' ? 'My Job Posts' : 'Applicants'}</span>
+          <span className="capitalize text-slate-700">{tab === 'create' ? 'Post a Job' : tab === 'postings' ? 'My Job Posts' : 'Applicants'}</span>
         </div>
         <RecruiterDashboard />
       </div>
@@ -439,21 +439,21 @@ function RecruiterHome({ user }) {
     <div className="grid gap-6 xl:grid-cols-[1fr_340px]">
       <div className="space-y-6">
         {/* HERO — distinct amber/orange gradient so recruiters never see seeker copy */}
-        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 p-6 dark:from-amber-500/15 dark:via-ink-900 dark:to-orange-500/10 sm:p-8">
+        <section className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-amber-50 via-white to-orange-50 p-6 sm:p-8">
           <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-amber-200/40 blur-3xl" />
           <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-orange-200/40 blur-3xl" />
           <div className="relative grid items-center gap-6 lg:grid-cols-[1fr_220px]">
             <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-3 py-1 text-xs font-semibold text-amber-700 dark:border-amber-400/30 dark:bg-white/5 dark:text-amber-300">
+              <span className="inline-flex items-center gap-2 rounded-full border border-amber-200 bg-white px-3 py-1 text-xs font-semibold text-amber-700">
                 <span className="h-2 w-2 rounded-full bg-amber-500" />
                 Recruiter Workspace
               </span>
-              <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+              <h1 className="mt-4 font-display text-3xl font-extrabold leading-tight tracking-tight text-slate-900 sm:text-4xl">
                 Hire the talent
                 <br />
                 that <span className="bg-gradient-to-r from-amber-500 to-orange-600 bg-clip-text text-transparent">fits your team</span>
               </h1>
-              <p className="mt-3 max-w-md text-sm text-slate-600 dark:text-slate-300">
+              <p className="mt-3 max-w-md text-sm text-slate-600">
                 Welcome back, {user.name?.split(' ')[0] || 'there'}. Manage postings, review applicants, and hire faster.
               </p>
               <div className="mt-5 flex flex-wrap gap-3">
@@ -461,7 +461,7 @@ function RecruiterHome({ user }) {
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M12 5v14M5 12h14" /></svg>
                   Post a New Job
                 </Link>
-                <Link to="/dashboard?tab=applicants" className="btn border-2 border-amber-500 bg-transparent px-6 py-2.5 text-sm font-semibold text-amber-700 hover:bg-amber-50 dark:border-amber-400 dark:text-amber-200 dark:hover:bg-amber-500/10">
+                <Link to="/dashboard?tab=applicants" className="btn border-2 border-amber-500 bg-transparent px-6 py-2.5 text-sm font-semibold text-amber-700 hover:bg-amber-50">
                   Review Applicants
                 </Link>
               </div>
@@ -472,17 +472,17 @@ function RecruiterHome({ user }) {
 
         {/* STATS */}
         <section className="grid grid-cols-2 gap-3 sm:grid-cols-4">
-          <RecruiterStat label="Active Postings"  value={stats.active}  icon="doc"   tint="bg-amber-100 text-amber-700 dark:bg-amber-500/15 dark:text-amber-300" />
-          <RecruiterStat label="Total Applicants" value={stats.total}   icon="users" tint="bg-blue-100 text-blue-700 dark:bg-blue-500/15 dark:text-blue-300" />
-          <RecruiterStat label="Pending Review"   value={stats.pending} icon="clock" tint="bg-rose-100 text-rose-700 dark:bg-rose-500/15 dark:text-rose-300" />
-          <RecruiterStat label="Hired"            value={stats.hired}   icon="check" tint="bg-emerald-100 text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300" />
+          <RecruiterStat label="Active Postings"  value={stats.active}  icon="doc"   tint="bg-amber-100 text-amber-700" />
+          <RecruiterStat label="Total Applicants" value={stats.total}   icon="users" tint="bg-blue-100 text-blue-700" />
+          <RecruiterStat label="Pending Review"   value={stats.pending} icon="clock" tint="bg-rose-100 text-rose-700" />
+          <RecruiterStat label="Hired"            value={stats.hired}   icon="check" tint="bg-emerald-100 text-emerald-700" />
         </section>
 
         {/* RECENT POSTINGS */}
         <section>
           <div className="mb-4 flex items-end justify-between">
-            <h2 className="font-display text-lg font-bold text-slate-900 dark:text-white">Your Recent Postings</h2>
-            <Link to="/dashboard?tab=postings" className="text-xs font-medium text-amber-700 hover:underline dark:text-amber-300">View all</Link>
+            <h2 className="font-display text-lg font-bold text-slate-900">Your Recent Postings</h2>
+            <Link to="/dashboard?tab=postings" className="text-xs font-medium text-amber-700 hover:underline">View all</Link>
           </div>
           {jobs === null ? <ListSkeleton count={2} /> : jobs.length === 0 ? (
             <EmptyState
@@ -495,13 +495,13 @@ function RecruiterHome({ user }) {
               {jobs.slice(0, 3).map((j) => (
                 <li key={j._id} className="card flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between">
                   <div className="min-w-0">
-                    <Link to={`/jobs/${j._id}`} className="block truncate font-semibold text-slate-900 hover:text-amber-700 dark:text-white">{j.title}</Link>
-                    <p className="truncate text-sm text-slate-600 dark:text-slate-400">{j.company} · {j.location}</p>
-                    <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">Posted {new Date(j.createdAt).toLocaleDateString()}</p>
+                    <Link to={`/jobs/${j._id}`} className="block truncate font-semibold text-slate-900 hover:text-amber-700">{j.title}</Link>
+                    <p className="truncate text-sm text-slate-600">{j.company} · {j.location}</p>
+                    <p className="mt-1 text-xs text-slate-500">Posted {new Date(j.createdAt).toLocaleDateString()}</p>
                   </div>
                   <div className="flex flex-shrink-0 items-center gap-2">
-                    <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 capitalize dark:bg-amber-500/15 dark:text-amber-300">{j.type}</span>
-                    <Link to="/dashboard?tab=postings" className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50 dark:border-white/10 dark:text-slate-200 dark:hover:bg-white/5">Manage</Link>
+                    <span className="rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold text-amber-700 capitalize">{j.type}</span>
+                    <Link to="/dashboard?tab=postings" className="rounded-lg border border-slate-200 px-3 py-1.5 text-xs font-semibold text-slate-700 hover:bg-slate-50">Manage</Link>
                   </div>
                 </li>
               ))}
@@ -514,8 +514,8 @@ function RecruiterHome({ user }) {
       <aside className="space-y-6">
         <div className="card p-5">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-slate-900 dark:text-white">Recent Applicants</h3>
-            <Link to="/dashboard?tab=applicants" className="text-xs font-medium text-amber-700 hover:underline dark:text-amber-300">View all</Link>
+            <h3 className="text-sm font-bold text-slate-900">Recent Applicants</h3>
+            <Link to="/dashboard?tab=applicants" className="text-xs font-medium text-amber-700 hover:underline">View all</Link>
           </div>
           {applicants === null ? (
             <p className="mt-4 text-xs text-slate-500">Loading…</p>
@@ -529,8 +529,8 @@ function RecruiterHome({ user }) {
                     {a.applicant?.name?.[0]?.toUpperCase() || '?'}
                   </span>
                   <div className="min-w-0 flex-1">
-                    <p className="truncate text-sm font-semibold text-slate-900 dark:text-white">{a.applicant?.name || 'Applicant'}</p>
-                    <p className="truncate text-xs text-slate-500 dark:text-slate-400">applied to {a._job?.title}</p>
+                    <p className="truncate text-sm font-semibold text-slate-900">{a.applicant?.name || 'Applicant'}</p>
+                    <p className="truncate text-xs text-slate-500">applied to {a._job?.title}</p>
                     <span className={`mt-1 inline-block rounded-full px-2 py-0.5 text-[10px] font-semibold capitalize ${STATUS_COLORS[a.status] || ''}`}>{a.status}</span>
                   </div>
                 </li>
@@ -539,9 +539,9 @@ function RecruiterHome({ user }) {
           )}
         </div>
 
-        <div className="relative overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-5 dark:border-amber-400/20 dark:from-amber-500/15 dark:to-orange-500/10">
-          <h3 className="font-display text-base font-bold text-amber-800 dark:text-amber-200">Hiring tip</h3>
-          <p className="mt-1 text-xs text-slate-700 dark:text-slate-300">
+        <div className="relative overflow-hidden rounded-2xl border border-amber-200 bg-gradient-to-br from-amber-50 to-orange-50 p-5">
+          <h3 className="font-display text-base font-bold text-amber-800">Hiring tip</h3>
+          <p className="mt-1 text-xs text-slate-700">
             Postings with a clear salary range get <span className="font-semibold">2.3×</span> more qualified applicants.
           </p>
           <Link to="/dashboard?tab=create" className="mt-4 inline-flex rounded-lg bg-amber-600 px-4 py-2 text-xs font-semibold text-white hover:bg-amber-700">
@@ -558,8 +558,8 @@ function RecruiterStat({ label, value, icon, tint }) {
     <div className="card flex items-center gap-3 p-4">
       <span className={`grid h-10 w-10 place-items-center rounded-xl ${tint}`}><StatIcon name={icon} /></span>
       <div>
-        <p className="text-2xl font-extrabold text-slate-900 dark:text-white">{value}</p>
-        <p className="text-xs text-slate-500 dark:text-slate-400">{label}</p>
+        <p className="text-2xl font-extrabold text-slate-900">{value}</p>
+        <p className="text-xs text-slate-500">{label}</p>
       </div>
     </div>
   );
@@ -664,4 +664,4 @@ function SideIcon({ name }) {
     case 'chart':    return <svg {...p}><path d="M3 3v18h18M7 14l4-4 4 4 5-5" /></svg>;
     default: return null;
   }
-}
+}ss

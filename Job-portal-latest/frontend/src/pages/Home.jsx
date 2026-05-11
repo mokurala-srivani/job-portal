@@ -4,12 +4,12 @@ import { listJobs } from '../services/jobs';
 import CompanyLogo from '../components/CompanyLogo.jsx';
 
 const CATEGORIES = [
-  { name: 'UI/UX Design',     q: 'designer',  count: '1,245 jobs', tint: 'bg-violet-100 text-violet-600 dark:bg-violet-500/15 dark:text-violet-300', icon: 'design' },
-  { name: 'Development',      q: 'engineer',  count: '3,678 jobs', tint: 'bg-sky-100 text-sky-600 dark:bg-sky-500/15 dark:text-sky-300',           icon: 'code' },
-  { name: 'Marketing',        q: 'marketing', count: '1,096 jobs', tint: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-500/15 dark:text-emerald-300', icon: 'mega' },
-  { name: 'Sales',            q: 'sales',     count: '1,192 jobs', tint: 'bg-amber-100 text-amber-600 dark:bg-amber-500/15 dark:text-amber-300',     icon: 'thumb' },
-  { name: 'Product',          q: 'product',   count: '1,005 jobs', tint: 'bg-rose-100 text-rose-600 dark:bg-rose-500/15 dark:text-rose-300',         icon: 'box' },
-  { name: 'Customer Support', q: 'support',   count: '876 jobs',   tint: 'bg-teal-100 text-teal-600 dark:bg-teal-500/15 dark:text-teal-300',         icon: 'chat' },
+  { name: 'UI/UX Design',     q: 'designer',  count: '1,245 jobs', tint: 'bg-violet-100 text-violet-600', icon: 'design' },
+  { name: 'Development',      q: 'engineer',  count: '3,678 jobs', tint: 'bg-sky-100 text-sky-600', icon: 'code' },
+  { name: 'Marketing',        q: 'marketing', count: '1,096 jobs', tint: 'bg-emerald-100 text-emerald-600', icon: 'mega' },
+  { name: 'Sales',            q: 'sales',     count: '1,192 jobs', tint: 'bg-amber-100 text-amber-600', icon: 'thumb' },
+  { name: 'Product',          q: 'product',   count: '1,005 jobs', tint: 'bg-rose-100 text-rose-600', icon: 'box' },
+  { name: 'Customer Support', q: 'support',   count: '876 jobs',   tint: 'bg-teal-100 text-teal-600', icon: 'chat' },
 ];
 
 const FLOATING_CARDS = [
@@ -31,21 +31,21 @@ export default function Home() {
       <section className="section pt-10">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
-            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-slate-200">
+            <span className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-700 shadow-sm">
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
               Over 25,000+ jobs available
             </span>
-            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 dark:text-white sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 font-display text-4xl font-extrabold leading-[1.05] tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
               Find the job
               <br />
               that fits <span className="text-gradient">your life</span>
             </h1>
-            <p className="mt-5 max-w-md text-base text-slate-600 dark:text-slate-300">
+            <p className="mt-5 max-w-md text-base text-slate-600">
               Discover opportunities, showcase your skills, and build the career you've always wanted.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link to="/jobs" className="btn-primary px-7 py-3 text-sm">Find Jobs</Link>
-              <Link to="/register" className="btn border-2 border-brand-600 bg-transparent px-7 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50 dark:border-brand-400 dark:text-brand-200 dark:hover:bg-brand-500/10">
+              <Link to="/register" className="btn border-2 border-brand-600 bg-transparent px-7 py-3 text-sm font-semibold text-brand-700 hover:bg-brand-50">
                 Upload Resume
               </Link>
             </div>
@@ -60,8 +60,8 @@ export default function Home() {
       {/* POPULAR CATEGORIES */}
       <section className="section pt-16">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Popular Categories</h2>
-          <Link to="/jobs" className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-300">View all categories</Link>
+          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900">Popular Categories</h2>
+          <Link to="/jobs" className="text-sm font-medium text-brand-700 hover:underline">View all categories</Link>
         </div>
         <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
           {CATEGORIES.map((c) => (
@@ -74,8 +74,8 @@ export default function Home() {
                 <CategoryIcon name={c.icon} />
               </span>
               <div>
-                <div className="text-sm font-semibold text-slate-900 group-hover:text-brand-700 dark:text-white">{c.name}</div>
-                <div className="mt-0.5 text-xs text-slate-500 dark:text-slate-400">{c.count}</div>
+                <div className="text-sm font-semibold text-slate-900 group-hover:text-brand-700">{c.name}</div>
+                <div className="mt-0.5 text-xs text-slate-500">{c.count}</div>
               </div>
             </Link>
           ))}
@@ -85,8 +85,8 @@ export default function Home() {
       {/* FEATURED JOBS */}
       <section className="section pt-16">
         <div className="mb-6 flex items-end justify-between">
-          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900 dark:text-white">Featured Jobs</h2>
-          <Link to="/jobs" className="text-sm font-medium text-brand-700 hover:underline dark:text-brand-300">View all jobs</Link>
+          <h2 className="font-display text-2xl font-bold tracking-tight text-slate-900">Featured Jobs</h2>
+          <Link to="/jobs" className="text-sm font-medium text-brand-700 hover:underline">View all jobs</Link>
         </div>
         {featured.length === 0 ? (
           <FallbackFeatured />
@@ -110,8 +110,8 @@ export default function Home() {
                 <CategoryIcon name={c.icon} />
               </span>
               <div>
-                <h3 className="font-semibold text-slate-900 dark:text-white">{c.title}</h3>
-                <p className="mt-1 text-sm text-slate-600 dark:text-slate-400">{c.desc}</p>
+                <h3 className="font-semibold text-slate-900">{c.title}</h3>
+                <p className="mt-1 text-sm text-slate-600">{c.desc}</p>
               </div>
             </div>
           ))}
@@ -140,25 +140,25 @@ function FeaturedRow({ job }) {
     <li className="card flex flex-col items-start gap-4 p-4 sm:flex-row sm:items-center">
       <CompanyLogo name={job.company} size={48} />
       <div className="min-w-0 flex-1">
-        <Link to={`/jobs/${job._id}`} className="block truncate font-semibold text-slate-900 hover:text-brand-700 dark:text-white">
+        <Link to={`/jobs/${job._id}`} className="block truncate font-semibold text-slate-900 hover:text-brand-700">
           {job.title}
         </Link>
-        <p className="truncate text-sm text-slate-600 dark:text-slate-400">
+        <p className="truncate text-sm text-slate-600">
           {job.company} <span className="ml-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-sky-500 text-[8px] text-white">✓</span>
         </p>
-        <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+        <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500">
           <span className="inline-flex items-center gap-1"><DotIcon name="pin" /> {job.location || 'Remote'}</span>
           <span className="inline-flex items-center gap-1"><DotIcon name="clock" /> {job.type || 'Full-time'}</span>
         </div>
       </div>
       <div className="flex items-center gap-3 self-stretch sm:self-auto">
         {salary && (
-          <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300">
+          <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">
             {salary}
           </span>
         )}
-        <span className="hidden text-xs text-slate-500 sm:inline dark:text-slate-400">{ago}</span>
-        <button type="button" aria-label="Save" className="hidden h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-400 hover:text-rose-500 sm:grid dark:border-white/10">
+        <span className="hidden text-xs text-slate-500 sm:inline">{ago}</span>
+        <button type="button" aria-label="Save" className="hidden h-9 w-9 place-items-center rounded-lg border border-slate-200 text-slate-400 hover:text-rose-500 sm:grid">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M19 21l-7-5-7 5V5a2 2 0 012-2h10a2 2 0 012 2z"/></svg>
         </button>
         <Link to={`/jobs/${job._id}`} className="btn-primary px-5 py-2 text-xs">Apply Now</Link>
@@ -179,18 +179,18 @@ function FallbackFeatured() {
         <li key={j.title} className="card flex flex-col items-start gap-4 p-4 sm:flex-row sm:items-center">
           <CompanyLogo name={j.company} size={48} />
           <div className="min-w-0 flex-1">
-            <p className="block truncate font-semibold text-slate-900 dark:text-white">{j.title}</p>
-            <p className="truncate text-sm text-slate-600 dark:text-slate-400">
+            <p className="block truncate font-semibold text-slate-900">{j.title}</p>
+            <p className="truncate text-sm text-slate-600">
               {j.company} <span className="ml-1 inline-flex h-3.5 w-3.5 items-center justify-center rounded-full bg-sky-500 text-[8px] text-white">✓</span>
             </p>
-            <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
+            <div className="mt-1.5 flex flex-wrap items-center gap-3 text-xs text-slate-500">
               <span className="inline-flex items-center gap-1"><DotIcon name="pin" /> {j.loc}</span>
               <span className="inline-flex items-center gap-1"><DotIcon name="clock" /> {j.type}</span>
             </div>
           </div>
           <div className="flex items-center gap-3 self-stretch sm:self-auto">
-            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700 dark:bg-emerald-500/15 dark:text-emerald-300">{j.salary}</span>
-            <span className="hidden text-xs text-slate-500 sm:inline dark:text-slate-400">{j.ago}</span>
+            <span className="rounded-full bg-emerald-100 px-3 py-1 text-xs font-semibold text-emerald-700">{j.salary}</span>
+            <span className="hidden text-xs text-slate-500 sm:inline">{j.ago}</span>
             <Link to="/jobs" className="btn-primary px-5 py-2 text-xs">Apply Now</Link>
           </div>
         </li>
@@ -225,7 +225,7 @@ function HeroArt({ cards }) {
   return (
     <div className="relative h-[440px]">
       {/* purple curved backdrop */}
-      <div className="absolute right-4 top-4 h-72 w-72 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] bg-gradient-to-br from-brand-200 to-brand-300 opacity-70 dark:from-brand-500/30 dark:to-brand-700/30" />
+      <div className="absolute right-4 top-4 h-72 w-72 rounded-[50%_50%_50%_50%/60%_60%_40%_40%] bg-gradient-to-br from-brand-200 to-brand-300 opacity-70" />
       <div className="absolute left-8 bottom-8 h-3 w-3 rounded-full bg-brand-300/60" />
       <div className="absolute left-12 bottom-16 h-2 w-2 rounded-full bg-brand-300/60" />
 
@@ -259,12 +259,12 @@ function HeroArt({ cards }) {
 function FloatingCard({ title, company, salary, tint }) {
   const initials = company?.[0]?.toUpperCase() || 'J';
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-soft dark:border-white/10 dark:bg-ink-900">
+    <div className="rounded-2xl border border-slate-200 bg-white p-3 shadow-soft">
       <div className="flex items-center gap-2.5">
         <span className={`grid h-9 w-9 place-items-center rounded-lg text-sm font-bold ${tint}`}>{initials}</span>
         <div className="min-w-0">
-          <p className="truncate text-xs font-semibold text-slate-900 dark:text-white">{title}</p>
-          <p className="truncate text-[11px] text-slate-500 dark:text-slate-400">{company}</p>
+          <p className="truncate text-xs font-semibold text-slate-900">{title}</p>
+          <p className="truncate text-[11px] text-slate-500">{company}</p>
         </div>
       </div>
       <p className="mt-2 text-[11px] font-semibold text-emerald-600">{salary}</p>

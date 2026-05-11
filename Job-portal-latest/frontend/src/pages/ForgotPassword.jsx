@@ -24,29 +24,29 @@ export default function ForgotPassword() {
     <AuthShell variant="forgot">
       <div className="flex items-center justify-between">
         <Logo />
-        <Link to="/login" className="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline dark:text-brand-300">
+        <Link to="/login" className="inline-flex items-center gap-1 text-sm font-semibold text-brand-700 hover:underline">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M15 18l-6-6 6-6" /></svg>
           Back to login
         </Link>
       </div>
 
       <div className="mt-16 text-center">
-        <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-700 dark:bg-brand-500/15 dark:text-brand-200">
+        <span className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-100 text-brand-700">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <rect x="4" y="11" width="16" height="10" rx="2" /><path d="M8 11V7a4 4 0 018 0v4" />
           </svg>
         </span>
-        <h1 className="mt-5 font-display text-2xl font-extrabold text-slate-900 dark:text-white">Forgot Password?</h1>
-        <p className="mx-auto mt-2 max-w-xs text-sm text-slate-500 dark:text-slate-400">
+        <h1 className="mt-5 font-display text-2xl font-extrabold text-slate-900">Forgot Password?</h1>
+        <p className="mx-auto mt-2 max-w-xs text-sm text-slate-500">
           Enter your email address and we'll send you a link to reset your password.
         </p>
       </div>
 
       {sent ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-          className="mt-8 rounded-2xl border border-emerald-200/60 bg-emerald-50/70 p-4 text-sm text-emerald-800 dark:border-emerald-400/20 dark:bg-emerald-400/10 dark:text-emerald-200">
+          className="mt-8 rounded-2xl border border-emerald-200/60 bg-emerald-50/70 p-4 text-sm text-emerald-800">
           <p className="font-semibold">Check your inbox</p>
-          <p className="mt-1 text-emerald-700/80 dark:text-emerald-200/80">
+          <p className="mt-1 text-emerald-700/80">
             If <span className="font-medium">{email}</span> matches an account, you'll get a reset link shortly.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export default function ForgotPassword() {
       )}
 
       <p className="mt-6 text-center text-sm text-muted">
-        <Link to="/login" className="font-semibold text-brand-700 hover:underline dark:text-brand-300">Back to login</Link>
+        <Link to="/login" className="font-semibold text-brand-700 hover:underline">Back to login</Link>
       </p>
     </AuthShell>
   );

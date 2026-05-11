@@ -18,8 +18,7 @@ body {
   background-image: var(--page-mesh, none);
   background-attachment: fixed;
 }
-html:not(.dark) body { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.10) 0px, transparent 50%), radial-gradient(at 88% 12%, rgba(99,102,241,0.10) 0px, transparent 50%), radial-gradient(at 76% 88%, rgba(236,72,153,0.08) 0px, transparent 50%); }
-html.dark body  { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.22) 0px, transparent 50%), radial-gradient(at 88% 12%, rgba(99,102,241,0.20) 0px, transparent 50%), radial-gradient(at 76% 88%, rgba(236,72,153,0.16) 0px, transparent 50%); }
+body { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.10) 0px, transparent 50%), radial-gradient(at 88% 12%, rgba(99,102,241,0.10) 0px, transparent 50%), radial-gradient(at 76% 88%, rgba(236,72,153,0.08) 0px, transparent 50%); }
 
 ::selection { background: rgba(124, 92, 255, 0.25); }
 
@@ -36,23 +35,18 @@ html.dark body  { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.22)
   }
   .btn-primary:hover { background-position: 100% 50%; box-shadow: 0 20px 60px -15px rgba(106, 61, 255, 0.6); transform: translateY(-1px); }
   .btn-primary:active { transform: translateY(0); }
-  .btn-secondary { @apply btn border border-slate-300 bg-white text-slate-700 hover:bg-slate-50 hover:border-slate-400 dark:border-white/10 dark:bg-white/5 dark:text-slate-200 dark:hover:bg-white/10; }
-  .btn-ghost { @apply btn text-slate-700 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-white/5; }
-  .btn-dark { @apply btn bg-slate-900 text-white hover:bg-slate-800 dark:bg-white dark:text-slate-900 dark:hover:bg-slate-100; }
+  .btn-secondary { @apply btn border border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50; }
+  .btn-ghost { @apply btn text-slate-700 hover:bg-slate-100; }
+  .btn-dark { @apply btn bg-slate-900 text-white hover:bg-slate-800; }
 
   .input {
-    @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10
-           dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:border-brand-400 dark:focus:ring-brand-400/20;
+    @apply w-full rounded-xl border border-slate-300 bg-white px-3.5 py-2.5 text-sm shadow-sm transition focus:border-brand-500 focus:outline-none focus:ring-4 focus:ring-brand-500/10;
   }
-  .label { @apply mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300; }
+  .label { @apply mb-1.5 block text-sm font-medium text-slate-700; }
 
   .card {
     @apply rounded-2xl border border-slate-200 bg-white transition;
     box-shadow: 0 1px 2px rgba(15,23,42,0.04), 0 8px 24px -12px rgba(15,23,42,0.12);
-  }
-  .dark .card {
-    @apply border-white/10 bg-white/[0.04];
-    box-shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
   }
 
   /* Glassmorphism */
@@ -60,23 +54,15 @@ html.dark body  { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.22)
     @apply rounded-2xl border border-white/40 bg-white/60 backdrop-blur-xl;
     box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.18), inset 0 1px 0 0 rgba(255,255,255,0.7);
   }
-  .dark .glass {
-    @apply border-white/10 bg-white/[0.06];
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45), inset 0 1px 0 0 rgba(255,255,255,0.06);
-  }
 
   .glass-strong {
     @apply rounded-2xl border border-white/50 bg-white/75 backdrop-blur-2xl;
     box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.22), inset 0 1px 0 0 rgba(255,255,255,0.8);
   }
-  .dark .glass-strong {
-    @apply border-white/15 bg-white/[0.08];
-    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.55), inset 0 1px 0 0 rgba(255,255,255,0.08);
-  }
 
-  .badge { @apply inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700 dark:bg-white/10 dark:text-slate-200; }
-  .badge-brand { @apply badge bg-brand-50 text-brand-700 dark:bg-brand-500/15 dark:text-brand-200; }
-  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm transition hover:border-brand-300 hover:text-brand-700 dark:border-white/10 dark:bg-white/5 dark:text-slate-300 dark:hover:border-brand-400/40 dark:hover:text-brand-200; }
+  .badge { @apply inline-flex items-center gap-1 rounded-full bg-slate-100 px-2.5 py-1 text-xs font-medium text-slate-700; }
+  .badge-brand { @apply badge bg-brand-50 text-brand-700; }
+  .chip { @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-medium text-slate-600 shadow-sm transition hover:border-brand-300 hover:text-brand-700; }
   .section { @apply mx-auto max-w-6xl px-4 sm:px-6; }
 
   .gradient-border { position: relative; }
@@ -106,9 +92,9 @@ html.dark body  { --page-mesh: radial-gradient(at 12% 18%, rgba(124,92,255,0.22)
   }
   .scrollbar-none::-webkit-scrollbar { display: none; }
   .scrollbar-none { scrollbar-width: none; }
-  .surface { @apply bg-white dark:bg-ink-900; }
-  .surface-muted { @apply bg-slate-50 dark:bg-ink-950; }
-  .text-muted { @apply text-slate-600 dark:text-slate-400; }
-  .text-strong { @apply text-slate-900 dark:text-slate-50; }
-  .border-subtle { @apply border-slate-200 dark:border-white/10; }
+  .surface { @apply bg-white; }
+  .surface-muted { @apply bg-slate-50; }
+  .text-muted { @apply text-slate-600; }
+  .text-strong { @apply text-slate-900; }
+  .border-subtle { @apply border-slate-200; }
 }

@@ -34,15 +34,15 @@ export default function Login() {
     <AuthShell variant="login">
       <div className="flex items-center justify-between">
         <Logo />
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-500">
           Don't have an account?{' '}
-          <Link to="/register" className="font-semibold text-brand-700 hover:underline dark:text-brand-300">Sign up</Link>
+          <Link to="/register" className="font-semibold text-brand-700 hover:underline">Sign up</Link>
         </p>
       </div>
 
       <div className="mt-12">
-        <h1 className="font-display text-3xl font-extrabold text-slate-900 dark:text-white">Welcome Back!</h1>
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Log in to your account</p>
+        <h1 className="font-display text-3xl font-extrabold text-slate-900">Welcome Back!</h1>
+        <p className="mt-1 text-sm text-slate-500">Log in to your account</p>
 
         <form onSubmit={onSubmit} className="mt-6 space-y-4">
           <IconInput
@@ -62,17 +62,17 @@ export default function Login() {
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             trailing={
-              <button type="button" onClick={() => setShowPw((s) => !s)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Toggle password">
+              <button type="button" onClick={() => setShowPw((s) => !s)} className="text-slate-400 hover:text-slate-600" aria-label="Toggle password">
                 <EyeIcon hidden={!showPw} />
               </button>
             }
           />
           <div className="flex items-center justify-between text-xs">
-            <label className="flex items-center gap-2 text-slate-600 dark:text-slate-400">
+            <label className="flex items-center gap-2 text-slate-600">
               <input type="checkbox" checked={remember} onChange={(e) => setRemember(e.target.checked)} className="h-4 w-4 rounded border-slate-300 text-brand-600 focus:ring-brand-500" />
               Remember me
             </label>
-            <Link to="/forgot-password" className="font-semibold text-brand-700 hover:underline dark:text-brand-300">Forgot password?</Link>
+            <Link to="/forgot-password" className="font-semibold text-brand-700 hover:underline">Forgot password?</Link>
           </div>
 
           <motion.button whileHover={{ scale: 1.01 }} whileTap={{ scale: 0.98 }}
@@ -81,8 +81,8 @@ export default function Login() {
           </motion.button>
         </form>
 
-        <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300">
-          <p className="mb-2 font-medium text-slate-700 dark:text-slate-200">Try a demo account:</p>
+        <div className="mt-6 rounded-2xl border border-dashed border-slate-300 bg-slate-50/70 p-3 text-xs text-slate-600">
+          <p className="mb-2 font-medium text-slate-700">Try a demo account:</p>
           <div className="flex flex-wrap gap-1.5">
             {[
               ['Recruiter', 'recruiter@example.com'],
@@ -108,15 +108,15 @@ export function AuthShell({ children, variant = 'login' }) {
   }[variant];
 
   return (
-    <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-slate-50 px-4 py-10 dark:bg-ink-950">
-      <div className="blob -left-24 top-12 h-80 w-80 bg-brand-300/20 dark:bg-brand-500/15" />
-      <div className="blob -right-24 bottom-10 h-80 w-80 bg-indigo-300/20 dark:bg-indigo-500/10" />
+    <div className="relative min-h-[calc(100vh-4rem)] overflow-hidden bg-slate-50 px-4 py-10">
+      <div className="blob -left-24 top-12 h-80 w-80 bg-brand-300/20" />
+      <div className="blob -right-24 bottom-10 h-80 w-80 bg-indigo-300/20" />
 
       <motion.div
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: 'easeOut' }}
-        className="relative mx-auto grid w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-glass dark:border-white/10 dark:bg-ink-900 lg:grid-cols-[1fr_1.1fr]"
+        className="relative mx-auto grid w-full max-w-5xl overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-glass lg:grid-cols-[1fr_1.1fr]"
       >
         <AuthIllustration variant={variant} headline={headlines.title} sub={headlines.sub} />
         <div className="px-6 py-10 sm:px-10 sm:py-12">
@@ -130,7 +130,7 @@ export function AuthShell({ children, variant = 'login' }) {
 export function AuthIllustration({ variant, headline, sub }) {
   return (
     <aside className="relative hidden overflow-hidden bg-gradient-to-br from-brand-500 via-brand-600 to-indigo-600 p-10 lg:block">
-      <div className="absolute inset-0 bg-grid-dark [background-size:24px_24px] opacity-30" />
+      <div className="absolute inset-0 bg-grid-slate [background-size:24px_24px] opacity-20" />
       <div className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-white/10 blur-3xl" />
       <div className="absolute -bottom-24 -left-20 h-72 w-72 rounded-full bg-amber-300/20 blur-3xl" />
 

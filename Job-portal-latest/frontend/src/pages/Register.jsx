@@ -32,15 +32,15 @@ export default function Register() {
     <AuthShell variant="register">
       <div className="flex items-center justify-between">
         <Logo />
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+        <p className="text-sm text-slate-500">
           Already have an account?{' '}
-          <Link to="/login" className="font-semibold text-brand-700 hover:underline dark:text-brand-300">Log in</Link>
+          <Link to="/login" className="font-semibold text-brand-700 hover:underline">Log in</Link>
         </p>
       </div>
 
       <div className="mt-12">
-        <h1 className="font-display text-3xl font-extrabold text-slate-900 dark:text-white">Create Account</h1>
-        <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">Sign up to get started</p>
+        <h1 className="font-display text-3xl font-extrabold text-slate-900">Create Account</h1>
+        <p className="mt-1 text-sm text-slate-500">Sign up to get started</p>
 
         <div className="mb-4 mt-6 grid grid-cols-2 gap-2">
           {[
@@ -53,12 +53,12 @@ export default function Register() {
               onClick={() => setForm({ ...form, role: opt.v })}
               className={`rounded-xl border-2 p-3 text-left transition ${
                 form.role === opt.v
-                  ? 'border-brand-600 bg-brand-50 dark:border-brand-400 dark:bg-brand-500/10'
-                  : 'border-slate-200 hover:border-slate-300 dark:border-white/10'
+                  ? 'border-brand-600 bg-brand-50'
+                  : 'border-slate-200 hover:border-slate-300'
               }`}
             >
               <span className="text-base">{opt.icon}</span>
-              <p className={`mt-0.5 text-xs font-semibold ${form.role === opt.v ? 'text-brand-700 dark:text-brand-200' : 'text-slate-700 dark:text-slate-300'}`}>{opt.label}</p>
+              <p className={`mt-0.5 text-xs font-semibold ${form.role === opt.v ? 'text-brand-700' : 'text-slate-700'}`}>{opt.label}</p>
             </button>
           ))}
         </div>
@@ -74,7 +74,7 @@ export default function Register() {
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
             trailing={
-              <button type="button" onClick={() => setShowPw((s) => !s)} className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label="Toggle password">
+              <button type="button" onClick={() => setShowPw((s) => !s)} className="text-slate-400 hover:text-slate-600" aria-label="Toggle password">
                 <EyeIcon hidden={!showPw} />
               </button>
             }
@@ -86,11 +86,11 @@ export default function Register() {
           </motion.button>
         </form>
 
-        <p className="mt-5 text-center text-xs text-slate-500 dark:text-slate-400">
+        <p className="mt-5 text-center text-xs text-slate-500">
           By creating an account, you agree to our{' '}
-          <a href="#" className="font-semibold text-brand-700 dark:text-brand-300">Terms of Service</a>
+          <a href="#" className="font-semibold text-brand-700">Terms of Service</a>
           {' '}and{' '}
-          <a href="#" className="font-semibold text-brand-700 dark:text-brand-300">Privacy Policy</a>
+          <a href="#" className="font-semibold text-brand-700">Privacy Policy</a>
         </p>
       </div>
     </AuthShell>
