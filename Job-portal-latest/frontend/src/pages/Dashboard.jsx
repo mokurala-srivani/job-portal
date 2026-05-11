@@ -664,4 +664,4 @@ function SideIcon({ name }) {
     case 'chart':    return <svg {...p}><path d="M3 3v18h18M7 14l4-4 4 4 5-5" /></svg>;
     default: return null;
   }
-}ss
+}
